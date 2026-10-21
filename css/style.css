@@ -74,7 +74,6 @@ nav a:hover::after,nav a.act::after{transform:scaleX(1)}
 .hero p.lead{margin:22px 0 30px;font-size:19px;max-width:50ch;color:var(--muted)}
 .cta{display:flex;flex-wrap:wrap;gap:12px}
 .cam{width:100%;max-width:430px;justify-self:center}
-#eye{transition:transform .15s ease-out}
 .pulse-ring{transform-origin:270px 266px;animation:ringp 2.6s ease-out infinite}
 .cam-dot{animation:blinkd 1.6s ease-in-out infinite}
 /* Fundo do banner trabalhado (apenas computador) */
@@ -110,7 +109,7 @@ nav a:hover::after,nav a.act::after{transform:scaleX(1)}
 
 /* ===== Serviços ===== */
 .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
-.svc{grid-column:span 2;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px;display:flex;flex-direction:column;box-shadow:var(--shadow);position:relative}
+.svc{grid-column:span 2;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px;display:flex;flex-direction:column;box-shadow:var(--shadow);position:relative;overflow:hidden}
 .svc.wide{grid-column:span 3}
 .svc .ico{width:60px;height:60px;display:grid;place-items:center;background:var(--soft);border-radius:16px;margin-bottom:18px}
 .svc .ico svg{width:30px;height:30px;stroke:var(--brand);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
@@ -129,7 +128,7 @@ nav a:hover::after,nav a.act::after{transform:scaleX(1)}
 .svc.hot p{color:var(--on-deep);opacity:.85}
 .svc.hot .tags li{background:rgba(255,255,255,.08);color:var(--on-deep);border-color:rgba(255,255,255,.18)}
 .svc.hot .go{color:var(--accent)}
-.svc::before{content:"";position:absolute;left:28px;right:28px;top:-1px;height:3px;border-radius:0 0 3px 3px;background:var(--brand);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.svc::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--brand);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
 .svc.hot::before{background:var(--accent)}
 .svc .ico{transition:transform .5s cubic-bezier(.34,1.56,.64,1),background .3s,border-color .3s}
 .svc .ico svg{transition:stroke .3s}

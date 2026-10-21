@@ -57,9 +57,11 @@ if(why&&'IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion:r
 
 /* Câmera que acompanha o ponteiro (desktop) ou "vigia" sozinha (celular) */
 var eye=$('#eye'),cam=$('.cam'),mob=matchMedia('(max-width:860px),(hover:none)'),calm=matchMedia('(prefers-reduced-motion:reduce)').matches,aimT;
-addEventListener('pointermove',function(e){if(mob.matches)return;var r=cam.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2),d=Math.hypot(dx,dy)||1,k=Math.min(d,300)/300*20;eye.style.transform='translate('+dx/d*k+'px,'+dy/d*k+'px)'});
+var cx=0,cy=0,tx=0,ty=0,raf=0;
+function tick(){cx+=(tx-cx)*.2;cy+=(ty-cy)*.2;eye.style.transform='translate('+cx.toFixed(2)+'px,'+cy.toFixed(2)+'px)';raf=Math.abs(tx-cx)>.05||Math.abs(ty-cy)>.05?requestAnimationFrame(tick):0}
+addEventListener('pointermove',function(e){if(mob.matches)return;var r=cam.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2),d=Math.hypot(dx,dy)||1,k=Math.min(d,300)/300*20;tx=dx/d*k;ty=dy/d*k;if(!raf)raf=requestAnimationFrame(tick)});
 function rnd(){clearTimeout(aimT);if(!mob.matches||calm)return;if(!document.hidden){var a=Math.random()*6.2832,k=(.35+Math.random()*.65)*20;eye.style.transform='translate('+(Math.cos(a)*k).toFixed(1)+'px,'+(Math.sin(a)*k).toFixed(1)+'px)'}aimT=setTimeout(rnd,900+Math.random()*1400)}
-function mode(){eye.style.transition=mob.matches?'transform .55s cubic-bezier(.22,1,.36,1)':'';eye.style.transform='';rnd()}
+function mode(){eye.style.transition=mob.matches?'transform .55s cubic-bezier(.22,1,.36,1)':'none';cancelAnimationFrame(raf);raf=0;cx=cy=tx=ty=0;eye.style.transform='';rnd()}
 if(mob.addEventListener)mob.addEventListener('change',mode);else mob.addListener(mode);
 mode();
 
