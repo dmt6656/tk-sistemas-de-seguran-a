@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>TK Sistemas de Segurança | CFTV, alarmes, portões, controle de acesso e chaveiro 24h</title>
-<meta name="description" content="Segurança eletrônica, controle de acesso e chaveiro 24h para residências e empresas.">
+<title>TK Sistemas de Segurança | CFTV, alarmes, portões, controle de acesso e chaveiro</title>
+<meta name="description" content="Segurança eletrônica, controle de acesso e chaveiro para residências e empresas.">
 <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1C2530" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -203,7 +203,9 @@ input,select{min-height:48px}
   nav a.act{color:var(--brand)}
   .hero .wrap{gap:32px;padding-top:44px;padding-bottom:48px}
   .hero p.lead{font-size:18px;margin:16px 0 28px}
-  .lens{max-width:200px}
+  /* lente vira marca d'água no canto superior direito, atrás do título */
+  .hero .wrap{grid-template-columns:1fr}
+  .lens{position:absolute;z-index:-1;top:-24px;right:-96px;width:300px;max-width:none;opacity:.3;pointer-events:none}
   .sec .intro{margin-bottom:28px}
   .svc{padding:22px}
   .night,.rbox{padding:22px}
@@ -211,7 +213,7 @@ input,select{min-height:48px}
   .why{gap:24px}
   .chip{min-height:44px}
   .fab{display:none}
-  .mbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:9;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--surface);border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(20,30,45,.12)}
+  .mbar{display:grid;grid-template-columns:1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:9;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--surface);border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(20,30,45,.12)}
   .mbar{animation:mbarin .7s var(--ease) .3s both}
   .mbar a{display:flex;align-items:center;justify-content:center;gap:9px;position:relative;overflow:hidden;isolation:isolate;min-height:48px;border-radius:10px;font:600 16px/1 var(--body);text-decoration:none;touch-action:manipulation;-webkit-tap-highlight-color:transparent;transition:filter .2s ease,box-shadow .3s var(--ease)}
   .mbar a:active{filter:brightness(.92)}
@@ -263,7 +265,6 @@ input,select{min-height:48px}
       <a href="#servicos">Serviços</a><a href="#diferenciais">Diferenciais</a><a href="#faq">Perguntas</a><a href="#contato">Contato</a>
     </nav>
     <div class="tools">
-      <a class="tel" href="tel:+5541900000000" aria-label="Ligar para o plantão 24 horas"><i></i>Plantão 24h</a>
       <button class="icon-btn" id="theme" type="button" aria-label="Alternar tema claro e escuro">◐</button>
       <a class="btn hbtn" href="#contato">Pedir orçamento</a>
       <button class="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
@@ -277,9 +278,8 @@ input,select{min-height:48px}
     <canvas class="matrix" aria-hidden="true"></canvas>
     <div class="wrap">
       <div>
-        <span class="pill"><i></i>Plantão de chaveiro 24h ativo</span>
         <h1>Segurança eletrônica para quem não pode deixar nada ao acaso.</h1>
-        <p class="lead">Câmeras, alarmes, portões automáticos, controle de acesso e chaveiro 24 horas, com instalação e manutenção feitas pela mesma equipe.</p>
+        <p class="lead">Câmeras, alarmes, portões automáticos, controle de acesso e chaveiro, com instalação e manutenção feitas pela mesma equipe.</p>
         <a class="btn" href="#contato">Pedir orçamento</a>
         <a class="btn ghost" href="#servicos">Ver serviços</a>
       </div>
@@ -324,15 +324,8 @@ input,select{min-height:48px}
         <article class="svc wide">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3M14 9l2 2"/></svg>
           <h3>Chaveiro</h3>
-          <p>Aberturas, trocas de segredo e serviços residenciais e comerciais, com equipe pronta para emergências.</p>
+          <p>Aberturas, trocas de segredo e serviços residenciais e comerciais.</p>
         </article>
-        <div class="night" id="chaveiro">
-          <div>
-            <h3>Chaveiro 24 horas: plantão de emergência</h3>
-            <p>Trancado para fora ou com a fechadura danificada? Nosso plantão atende a qualquer hora, todos os dias, em residências e comércios.</p>
-          </div>
-          <a class="btn" href="tel:+5541900000000">Ligar agora</a>
-        </div>
       </div>
     </div>
   </section>
@@ -343,7 +336,7 @@ input,select{min-height:48px}
       <p class="intro">Tecnologia de segurança com atendimento direto e acompanhamento depois da instalação.</p>
       <div class="why">
         <div><h3>Solução completa</h3><p>Câmeras, alarmes, portões e fechaduras com um único responsável pelo projeto e pela manutenção.</p></div>
-        <div><h3>Atendimento 24 horas</h3><p>Plantão de chaveiro para emergências, sem esperar o próximo dia útil.</p></div>
+        <div><h3>Atendimento direto</h3><p>Fale com a equipe pelo WhatsApp e peça seu orçamento sem burocracia.</p></div>
         <div><h3>Para casa e empresa</h3><p>Projetos ajustados ao tamanho e à rotina de cada residência ou comércio.</p></div>
       </div>
     </div>
@@ -370,10 +363,9 @@ input,select{min-height:48px}
       <p class="intro">Respostas rápidas antes de pedir seu orçamento.</p>
       <details><summary>Consigo ver as imagens das câmeras em tempo real?</summary><p>Sim. Os sistemas de CFTV com DVR gravam continuamente e dão acesso às imagens em tempo real.</p></details>
       <details><summary>Vocês fazem instalação e manutenção?</summary><p>Fazemos os dois, em CFTV, alarmes, cercas elétricas, portões e controle de acesso.</p></details>
-      <details><summary>O chaveiro atende de madrugada e nos fins de semana?</summary><p>Sim. O plantão funciona 24 horas para aberturas, trocas de segredo e serviços residenciais e comerciais.</p></details>
       <details><summary>Quais tipos de portão podem ser automatizados?</summary><p>Basculantes, deslizantes e pivotantes. Informe o seu modelo no pedido de orçamento.</p></details>
       <details><summary>Atendem casas e empresas?</summary><p>Atendemos residências e comércios, com projetos ajustados a cada local.</p></details>
-      <p class="more">Não achou sua dúvida? <a href="https://wa.me/5541900000000" target="_blank" rel="noopener">Pergunte pelo WhatsApp</a>.</p>
+      <p class="more">Não achou sua dúvida? <a href="https://wa.me/5541992641946" target="_blank" rel="noopener">Pergunte pelo WhatsApp</a>.</p>
     </div>
   </section>
 
@@ -383,16 +375,14 @@ input,select{min-height:48px}
       <p class="intro">Conte o que você precisa proteger e retornamos com uma proposta.</p>
       <div class="contact">
         <div class="info">
-          <div><span>Telefone e plantão 24h</span><a href="tel:+5541900000000"><strong>(41) 90000-0000</strong></a></div>
-          <div><span>WhatsApp</span><a href="https://wa.me/5541900000000" target="_blank" rel="noopener"><strong>(41) 90000-0000</strong></a></div>
-          <div><span>E-mail</span><a href="mailto:contato@tksistemas.com.br"><strong>contato@tksistemas.com.br</strong></a></div>
-          <div><span>Endereço</span><strong>Rua Exemplo, 123, Curitiba, PR</strong></div>
+          <div><span>WhatsApp</span><a href="https://wa.me/5541992641946" target="_blank" rel="noopener"><strong>(41) 99264-1946</strong></a></div>
+          <div><span>E-mail</span><a href="mailto:tk.chaveiroesistemas@gmail.com"><strong>tk.chaveiroesistemas@gmail.com</strong></a></div>
         </div>
         <form id="f">
           <label>Nome<input name="nome" required autocomplete="name" enterkeyhint="next"></label>
           <label>Serviço de interesse
             <select name="servico">
-              <option>CFTV (câmeras e DVR)</option><option>Alarmes e cercas elétricas</option><option>Automatização de portões</option><option>Controle de acesso e fechaduras</option><option>Chaveiro 24h</option>
+              <option>CFTV (câmeras e DVR)</option><option>Alarmes e cercas elétricas</option><option>Automatização de portões</option><option>Controle de acesso e fechaduras</option><option>Chaveiro</option>
             </select>
           </label>
           <label>Mensagem<textarea name="msg" placeholder="Descreva o local e o que precisa."></textarea></label>
@@ -412,15 +402,15 @@ document.getElementById('f').addEventListener('submit',function(e){
   e.preventDefault();
   var d=new FormData(e.target);
   var t='Olá, sou '+d.get('nome')+'. Tenho interesse em: '+d.get('servico')+'. '+(d.get('msg')||'');
-  window.open('https://wa.me/5541900000000?text='+encodeURIComponent(t),'_blank','noopener');
+  window.open('https://wa.me/5541992641946?text='+encodeURIComponent(t),'_blank','noopener');
 });
 </script>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
 <symbol id="i-wa" viewBox="0 0 24 24"><path d="M6.014 8.00613C6.12827 7.1024 7.30277 5.87414 8.23488 6.01043L8.23339 6.00894C9.14051 6.18132 9.85859 7.74261 10.2635 8.44465C10.5504 8.95402 10.3641 9.4701 10.0965 9.68787C9.7355 9.97883 9.17099 10.3803 9.28943 10.7834C9.5 11.5 12 14 13.2296 14.7107C13.695 14.9797 14.0325 14.2702 14.3207 13.9067C14.5301 13.6271 15.0466 13.46 15.5548 13.736C16.3138 14.178 17.0288 14.6917 17.69 15.27C18.0202 15.546 18.0977 15.9539 17.8689 16.385C17.4659 17.1443 16.3003 18.1456 15.4542 17.9421C13.9764 17.5868 8 15.27 6.08033 8.55801C5.97237 8.24048 5.99955 8.12044 6.014 8.00613Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 23C10.7764 23 10.0994 22.8687 9 22.5L6.89443 23.5528C5.56462 24.2177 4 23.2507 4 21.7639V19.5C1.84655 17.492 1 15.1767 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23ZM6 18.6303L5.36395 18.0372C3.69087 16.4772 3 14.7331 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C11.0143 21 10.552 20.911 9.63595 20.6038L8.84847 20.3397L6 21.7639V18.6303Z"/></symbol>
 <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
 </defs></svg>
-<div class="mbar" role="group" aria-label="Contato rápido"><a class="mb-call" href="tel:+5541900000000"><svg aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>Ligar agora</a><a class="mb-wa" href="https://wa.me/5541900000000?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20TK%20Sistemas%20de%20Seguran%C3%A7a." target="_blank" rel="noopener" aria-label="WhatsApp (abre em nova aba)"><svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>WhatsApp</a></div>
-<a class="fab" href="https://wa.me/5541900000000?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20TK%20Sistemas%20de%20Seguran%C3%A7a." target="_blank" rel="noopener" aria-label="Falar no WhatsApp (abre em nova aba)"><span class="fab-ico"><svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg></span><span class="fab-txt">Falar no WhatsApp</span></a>
+<div class="mbar" role="group" aria-label="Contato rápido"><a class="mb-wa" href="https://wa.me/5541992641946?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20TK%20Sistemas%20de%20Seguran%C3%A7a." target="_blank" rel="noopener" aria-label="WhatsApp (abre em nova aba)"><svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>WhatsApp</a></div>
+<a class="fab" href="https://wa.me/5541992641946?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20TK%20Sistemas%20de%20Seguran%C3%A7a." target="_blank" rel="noopener" aria-label="Falar no WhatsApp (abre em nova aba)"><span class="fab-ico"><svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg></span><span class="fab-txt">Falar no WhatsApp</span></a>
 <script>
 (function(){
 var $=function(s){return document.querySelector(s)},$$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
@@ -437,8 +427,14 @@ document.addEventListener('click',function(e){if(nav.classList.contains('open')&
 addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){nav.classList.remove('open');mb.setAttribute('aria-expanded','false');mb.focus()}});
 var root=document.documentElement;
 $('#theme').addEventListener('click',function(){var d=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;root.dataset.theme=d?'light':'dark'});
-var eye=$('#eye'),lens=$('.lens');
-addEventListener('pointermove',function(e){var r=lens.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2),d=Math.hypot(dx,dy)||1,k=Math.min(d,300)/300*22;eye.style.transform='translate('+dx/d*k+'px,'+dy/d*k+'px)'});
+var eye=$('#eye'),lens=$('.lens'),mob=matchMedia('(max-width:860px),(hover:none)'),aimT,seen=true,calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+addEventListener('pointermove',function(e){if(mob.matches)return;var r=lens.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2),d=Math.hypot(dx,dy)||1,k=Math.min(d,300)/300*22;eye.style.transform='translate('+dx/d*k+'px,'+dy/d*k+'px)'});
+/* celular: sem mouse, a lente mira em pontos aleatórios */
+function rnd(){clearTimeout(aimT);if(!mob.matches||calm)return;if(seen&&!document.hidden){var a=Math.random()*6.2832,k=(.35+Math.random()*.65)*22;eye.style.transform='translate('+(Math.cos(a)*k).toFixed(1)+'px,'+(Math.sin(a)*k).toFixed(1)+'px)'}aimT=setTimeout(rnd,900+Math.random()*1400)}
+function mode(){eye.style.transition=mob.matches?'transform .55s cubic-bezier(.22,1,.36,1)':'';eye.style.transform='';rnd()}
+if(mob.addEventListener)mob.addEventListener('change',mode);else mob.addListener(mode);
+if('IntersectionObserver' in window)new IntersectionObserver(function(e){seen=e[0].isIntersecting}).observe(lens);
+mode();
 if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion:reduce)').matches){
  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){var el=en.target;el.classList.add('in');io.unobserve(el);setTimeout(function(){el.style.transitionDelay='0ms'},900)}})},{threshold:.15});
  $$('.svc,.night,.why>div,.info>div,form,.chips,.rbox,details').forEach(function(el,i){el.classList.add('reveal');el.style.transitionDelay=(i%3)*90+'ms';io.observe(el)});
@@ -448,9 +444,9 @@ cftv:['CFTV com câmeras e DVR','Gravação contínua e acesso às imagens em te
 alarme:['Alarmes e cercas elétricas','Proteção do perímetro com central de alarme e disparo imediato.','Alarmes e cercas elétricas'],
 portao:['Automatização de portões','Motores para portões basculantes, deslizantes e pivotantes.','Automatização de portões'],
 acesso:['Controle de acesso e fechaduras','Fechaduras digitais, eletroímãs e controles de acesso para empresas e residências.','Controle de acesso e fechaduras'],
-chave:['Chaveiro 24 horas','Plantão de emergência para abertura, troca de segredo e serviços residenciais e comerciais.','Chaveiro 24h']};
+chave:['Chaveiro','Abertura, troca de segredo e serviços residenciais e comerciais.','Chaveiro']};
 var box=$('#rbox');
-function show(k){var r=R[k];box.innerHTML='<div><h3></h3><p></p></div>'+(k==='chave'?'<a class="btn" href="tel:+5541900000000">Ligar agora</a>':'<a class="btn" href="#contato" data-s="'+r[2]+'">Pedir orçamento deste serviço</a>');box.querySelector('h3').textContent=r[0];box.querySelector('p').textContent=r[1]}
+function show(k){var r=R[k];box.innerHTML='<div><h3></h3><p></p></div>'+'<a class="btn" href="#contato" data-s="'+r[2]+'">Pedir orçamento deste serviço</a>';box.querySelector('h3').textContent=r[0];box.querySelector('p').textContent=r[1]}
 $$('.chip').forEach(function(c){c.addEventListener('click',function(){$$('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===c)});show(c.dataset.k)})});
 box.addEventListener('click',function(e){var s=e.target.dataset&&e.target.dataset.s;if(s)document.querySelector('select[name=servico]').value=s});
 var rm=matchMedia('(prefers-reduced-motion:reduce)').matches,fs=$$('details');
