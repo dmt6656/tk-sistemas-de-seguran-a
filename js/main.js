@@ -65,6 +65,13 @@ function mode(){eye.style.transition=mob.matches?'transform .55s cubic-bezier(.2
 if(mob.addEventListener)mob.addEventListener('change',mode);else mob.addListener(mode);
 mode();
 
+/* Botões do hero: ímã suave, brilho que segue o cursor e ondulação no clique */
+$$('.hero .btn').forEach(function(b){var ox=0,oy=0;
+ b.addEventListener('pointermove',function(e){if(e.pointerType!=='mouse'||calm)return;var r=b.getBoundingClientRect(),x=e.clientX-(r.left-ox),y=e.clientY-(r.top-oy);ox=(x/b.offsetWidth-.5)*8;oy=(y/b.offsetHeight-.5)*6;b.classList.add('on');b.style.setProperty('--mx',x+'px');b.style.setProperty('--my',y+'px');b.style.translate=ox.toFixed(1)+'px '+oy.toFixed(1)+'px'});
+ b.addEventListener('pointerleave',function(){ox=oy=0;b.classList.remove('on');b.style.translate=''});
+ b.addEventListener('pointerdown',function(e){if(calm)return;var r=b.getBoundingClientRect(),s=Math.max(r.width,r.height)*2.2,i=document.createElement('i');i.className='rip';i.style.cssText='width:'+s+'px;height:'+s+'px;left:'+(e.clientX-r.left-s/2)+'px;top:'+(e.clientY-r.top-s/2)+'px';b.appendChild(i);setTimeout(function(){i.remove()},700)});
+});
+
 /* Botões "Pedir orçamento" dos cards pré-selecionam o serviço no formulário */
 $$('.svc .go[data-s]').forEach(function(a){a.addEventListener('click',function(){document.querySelector('select[name=servico]').value=a.dataset.s})});
 

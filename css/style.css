@@ -28,6 +28,34 @@ button,.btn,summary{touch-action:manipulation;-webkit-tap-highlight-color:transp
 .btn.wa{background:linear-gradient(135deg,var(--wa1),var(--wa2));border-color:var(--wa2);color:#fff}
 .btn svg{flex:none;width:22px;height:22px;fill:currentColor}
 .btn.sm{padding:8px 16px;font-size:15px;min-height:44px;border-radius:10px;white-space:nowrap}
+/* ===== Botões do hero ===== */
+.hero .btn{position:relative;overflow:hidden;isolation:isolate;
+transition:transform .3s var(--ease),box-shadow .4s var(--ease),filter .2s,background-color .3s,color .3s,border-color .3s,translate .5s var(--ease)}
+.hero .btn.on{transition-duration:.3s,.4s,.2s,.3s,.3s,.3s,.12s}
+.hero .btn::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(120px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.11),transparent 65%);opacity:0;transition:opacity .3s}
+.hero .btn:active{transform:scale(.96);box-shadow:none;transition-duration:.1s}
+.hero .btn .rip{position:absolute;z-index:-1;border-radius:50%;background:rgba(255,255,255,.22);scale:0;pointer-events:none;animation:rip .65s var(--ease) forwards}
+.hero .btn svg{transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
+/* WhatsApp: pulso de atenção + brilho que atravessa no hover */
+.hero .btn.wa{box-shadow:0 0 0 0 rgba(15,128,64,.5);animation:wapulse 3.4s ease-out 1.6s infinite}
+.hero .btn.wa::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:45%;z-index:-1;background:linear-gradient(100deg,transparent,rgba(255,255,255,.16),transparent);transform:skewX(-20deg);pointer-events:none}
+/* Ver serviços: preenchimento da esquerda p/ direita + seta que desce */
+.hero .btn.ghost{box-shadow:inset 0 0 0 0 var(--brand),0 0 0 0 transparent}
+.hero .btn.ghost::after{content:"";width:8px;height:8px;border:solid currentColor;border-width:0 2px 2px 0;rotate:45deg;margin-top:-4px;transition:translate .4s var(--ease)}
+@media (hover:hover){
+.hero .btn:hover{transform:translateY(-3px);filter:none}
+.hero .btn:hover::before{opacity:1}
+.hero .btn.wa:hover{animation:none;box-shadow:0 16px 28px -10px rgba(15,128,64,.6)}
+.hero .btn.wa:hover::after{animation:shine .9s var(--ease)}
+.hero .btn.wa:hover svg{transform:rotate(-14deg) scale(1.18)}
+.hero .btn.ghost:hover{background:transparent;color:var(--on-brand);box-shadow:inset 640px 0 0 0 var(--brand),0 16px 26px -12px rgba(27,95,176,.5)}
+.hero .btn.ghost:hover::after{translate:0 4px}
+.hero .btn:hover:active{transform:scale(.96)}
+}
+@keyframes wapulse{0%{box-shadow:0 0 0 0 rgba(15,128,64,.5)}70%,100%{box-shadow:0 0 0 14px rgba(15,128,64,0)}}
+@keyframes shine{to{translate:480% 0}}
+@keyframes rip{to{scale:1;opacity:0}}
+@media (prefers-reduced-motion:reduce){.hero .btn.wa{animation:none}.hero .btn.wa::after,.hero .btn .rip{display:none}}
 .tools{flex:none}
 
 /* ===== Cabeçalho ===== */
