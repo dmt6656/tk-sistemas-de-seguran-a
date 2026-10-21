@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TK Sistemas de Segurança | CFTV, alarmes, portões, controle de acesso e chaveiro 24h</title>
+<meta name="description" content="Segurança eletrônica, controle de acesso e chaveiro 24h para residências e empresas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F5F8;--surface:#FFFFFF;--ink:#1E2833;--muted:#52627A;--brand:#44607F;--on-brand:#FFFFFF;
+  --deep:#263748;--on-deep:#EAF0F6;--line:#D5DCE5;--soft:#E6ECF3;
+  --head:"Sora","Segoe UI",system-ui,sans-serif;--body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#141B23;--surface:#1C2530;--ink:#E6ECF3;--muted:#9AA9BB;--brand:#7C9CC2;--on-brand:#10171F;--deep:#0F161D;--on-deep:#E6ECF3;--line:#2B3745;--soft:#243040;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#141B23;--surface:#1C2530;--ink:#E6ECF3;--muted:#9AA9BB;--brand:#7C9CC2;--on-brand:#10171F;--deep:#0F161D;--on-deep:#E6ECF3;--line:#2B3745;--soft:#243040;color-scheme:dark}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--surface);z-index:10}
+h1,h2,h3{font-family:var(--head);line-height:1.2;margin:0;letter-spacing:-.01em}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--brand);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.btn{display:inline-block;padding:13px 22px;border-radius:6px;font:600 16px var(--body);text-decoration:none;border:2px solid var(--brand);background:var(--brand);color:var(--on-brand)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn:hover{filter:brightness(1.08)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--surface);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 19px var(--head)}
+.logo b{display:grid;place-items:center;width:38px;height:38px;border-radius:8px;background:var(--brand);color:var(--on-brand);font-size:16px}
+.logo small{display:block;font:400 12px var(--body);color:var(--muted);margin-top:-2px}
+nav{display:flex;gap:26px}
+nav a{text-decoration:none;font-weight:600;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.hero{background:var(--deep);color:var(--on-deep);position:relative;overflow:hidden}
+.hero>.wrap{position:relative;z-index:1}
+.matrix{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.13;pointer-events:none;-webkit-mask-image:linear-gradient(90deg,#000 0,rgba(0,0,0,.25) 55%,#000 100%);mask-image:linear-gradient(90deg,#000 0,rgba(0,0,0,.25) 55%,#000 100%)}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-top:80px;padding-bottom:80px}
+.hero h1{font-size:clamp(32px,5vw,50px);font-weight:700}
+.hero p.lead{margin:20px 0 32px;font-size:19px;max-width:52ch;opacity:.88}
+.hero .btn.ghost{color:var(--on-deep);border-color:rgba(234,240,246,.35)}
+.hero .btn{background:#8FB0D4;border-color:#8FB0D4;color:#13202E}
+.hero .btn.ghost{background:transparent;border-color:rgba(234,240,246,.4);color:var(--on-deep)}
+.lens{width:100%;max-width:380px;justify-self:center}
+.sec{padding:80px 0}
+.sec h2{font-size:clamp(26px,3.6vw,36px);margin-bottom:12px}
+.sec .intro{color:var(--muted);max-width:60ch;margin-bottom:44px}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+.svc{grid-column:span 2;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:28px}
+.svc.wide{grid-column:span 3}
+.svc svg{width:34px;height:34px;stroke:var(--brand);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;margin-bottom:16px}
+.svc h3{font-size:19px;margin-bottom:8px}
+.svc p{color:var(--muted);font-size:16px}
+.night{background:var(--deep);color:var(--on-deep);border-radius:10px;padding:32px;grid-column:span 6;display:flex;gap:28px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.night h3{font-size:24px;margin-bottom:8px}
+.night p{opacity:.88;max-width:60ch}
+.night .btn{background:#8FB0D4;border-color:#8FB0D4;color:#13202E}
+.band{background:var(--soft)}
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.why h3{font-size:18px;margin-bottom:6px}
+.why p{color:var(--muted);font-size:16px}
+.why div{border-left:3px solid var(--brand);padding-left:18px}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.info{display:grid;gap:18px;align-content:start}
+.info div{border-bottom:1px solid var(--line);padding-bottom:14px}
+.info span{display:block;font-size:14px;color:var(--muted)}
+.info strong{font:600 18px var(--head)}
+form{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:28px;display:grid;gap:14px}
+label{font-weight:600;font-size:15px;display:grid;gap:6px}
+input,select,textarea{font:400 16px var(--body);padding:11px 12px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);width:100%}
+textarea{min-height:100px;resize:vertical}
+footer{background:var(--deep);color:var(--on-deep);padding:32px 0;font-size:15px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer span{opacity:.75}
+.menu{display:none;background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:8px 12px;font:600 15px var(--body);cursor:pointer}
+.tools{display:flex;gap:10px;align-items:center}
+.btn,.chip,.icon-btn,.menu,.fab{transition:transform .2s ease,box-shadow .2s ease,background .2s,color .2s,border-color .2s,filter .2s}
+.btn,.chip{position:relative;overflow:hidden}
+.btn{isolation:isolate}
+.fab{overflow:hidden}
+.btn::after{content:"";position:absolute;top:0;left:-70%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);transition:left .6s ease;z-index:-1}
+.btn:hover::after{left:130%}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(20,30,45,.25)}
+.btn.ghost:hover{background:var(--soft)}
+.hero .btn.ghost:hover{background:rgba(234,240,246,.14)}
+.chip:hover{transform:translateY(-2px)}
+.chip[aria-pressed=true]{animation:pop .3s ease}
+.icon-btn:hover{transform:rotate(25deg)}
+.btn:active,.chip:active,.icon-btn:active,.menu:active,.fab:active{transform:translateY(0) scale(.95);box-shadow:none}
+.hero .btn:not(.ghost),.night .btn{animation:halo 2.4s ease-out infinite}
+.hero .btn:hover,.night .btn:hover{animation:none}
+.fab.show{animation:bob 3s ease-in-out infinite,fabpulse 2.6s ease-out infinite}
+.fab.show:hover{animation:none;transform:translateY(-3px) scale(1.03)}
+.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.45);transform:scale(0);animation:rip .6s ease-out;pointer-events:none}
+@keyframes pop{50%{transform:scale(1.07)}}
+@keyframes halo{0%{box-shadow:0 0 0 0 rgba(143,176,212,.6)}70%,100%{box-shadow:0 0 0 14px rgba(143,176,212,0)}}
+@keyframes bob{50%{transform:translateY(-5px)}}
+@keyframes rip{to{transform:scale(4);opacity:0}}
+.icon-btn{background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;width:40px;height:40px;font-size:18px;cursor:pointer}
+.icon-btn:hover,.menu:hover{background:var(--soft)}
+.prog{position:absolute;left:0;bottom:-1px;height:3px;width:100%;background:var(--brand);transform-origin:left;transform:scaleX(0)}
+header{transition:box-shadow .25s}
+.hbtn{padding:8px 16px;font-size:14px;line-height:1.2;border-width:1px;border-radius:6px;white-space:nowrap;align-self:center}
+.bar{transition:height .3s ease}
+header.sc .bar{height:56px}
+.logo b{transition:transform .35s ease,width .3s,height .3s,font-size .3s}
+.logo:hover b{transform:rotate(-8deg) scale(1.1)}
+header.sc .logo b{width:34px;height:34px;font-size:14px}
+nav a{position:relative;padding:6px 0;transition:color .2s}
+nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--brand);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+nav a:hover::after,nav a.act::after{transform:scaleX(1)}
+nav a.act{color:var(--ink)}
+.tel{display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:15px;padding:8px 14px;border-radius:99px;border:1px solid var(--line);transition:background .2s,transform .2s}
+.tel:hover{background:var(--soft);transform:translateY(-1px)}
+.tel i{width:8px;height:8px;border-radius:50%;background:#2E9E68;animation:pulse 1.6s infinite}
+@media (max-width:1000px){.tel{display:none}}
+header.sc{box-shadow:0 6px 20px rgba(20,30,45,.14)}
+.pill{display:inline-flex;align-items:center;gap:9px;padding:6px 14px;border:1px solid rgba(234,240,246,.3);border-radius:99px;font-size:15px;margin-bottom:20px}
+.pill i{width:9px;height:9px;border-radius:50%;background:#7FD6A4;animation:pulse 1.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(127,214,164,.6)}100%{box-shadow:0 0 0 10px rgba(127,214,164,0)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes blink{50%{opacity:.15}}
+@keyframes swap{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.ring{transform-origin:160px 160px;animation:spin 40s linear infinite}
+.sweep{transform-origin:160px 160px;animation:spin 5s linear infinite}
+.blink{animation:blink 1.2s steps(2) infinite}
+#eye{transition:transform .15s ease-out}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+.svc.reveal{transition:opacity .6s ease,transform .6s ease,border-color .25s,box-shadow .25s}
+.svc.in:hover{transform:translateY(-5px);border-color:var(--brand);box-shadow:0 14px 28px rgba(30,45,65,.14)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:10px 18px;border-radius:99px;font:600 15px var(--body);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.chip:hover{border-color:var(--brand)}
+.chip[aria-pressed=true]{background:var(--brand);color:var(--on-brand);border-color:var(--brand)}
+.rbox{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:10px;padding:26px;display:flex;gap:20px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.rbox>div{animation:swap .35s ease}
+.rbox h3{font-size:20px;margin-bottom:6px}
+.rbox p{color:var(--muted);max-width:56ch}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:0 20px;margin-bottom:12px;max-width:780px}
+summary{cursor:pointer;font:600 17px var(--head);padding:18px 0;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:22px;line-height:1;transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding-bottom:18px;color:var(--muted)}
+details{transition:border-color .25s,box-shadow .25s,transform .2s}
+details:hover{border-color:var(--brand)}
+details:hover summary{color:var(--brand)}
+details[open]{border-color:var(--brand);box-shadow:inset 4px 0 0 var(--brand)}
+details[open] summary{color:var(--brand)}
+details[open] p{animation:swap .35s ease}
+summary{transition:color .2s}
+summary::after{color:var(--brand)}
+.more{margin-top:22px;color:var(--muted)}
+.more a{color:var(--brand);font-weight:600}
+.fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:9;display:inline-flex;align-items:center;gap:10px;padding:10px 20px 10px 12px;border-radius:99px;background:linear-gradient(135deg,#1FA95A,#0E7A45);color:#fff;font:600 16px var(--body);text-decoration:none;box-shadow:0 8px 24px rgba(8,60,35,.38);opacity:0;transform:translateY(20px);pointer-events:none;isolation:isolate;-webkit-tap-highlight-color:transparent;transition:opacity .3s,transform .25s ease,box-shadow .25s ease,filter .25s,gap .25s}
+.fab::before{content:"";position:absolute;top:0;left:-70%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);transition:left .6s ease;z-index:-1}
+.fab:hover::before{left:130%}
+.fab-ico{position:relative;flex:none;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.18);transition:background .25s,transform .3s}
+.fab-ico svg{width:26px;height:26px;fill:currentColor;transform-origin:50% 60%}
+.fab-ico::after{content:"";position:absolute;top:1px;right:1px;width:9px;height:9px;border-radius:50%;background:#7CFFB0;box-shadow:0 0 0 2px #0E7A45}
+.fab:hover,.fab:focus-visible{filter:brightness(1.08);box-shadow:0 12px 30px rgba(8,60,35,.5)}
+.fab:hover .fab-ico,.fab:focus-visible .fab-ico{background:rgba(255,255,255,.28);transform:scale(1.08)}
+.fab:hover .fab-ico svg,.fab:focus-visible .fab-ico svg{animation:wag .7s ease}
+.fab:focus-visible{outline:3px solid #fff;outline-offset:3px}
+@keyframes wag{0%,100%{transform:rotate(0)}20%{transform:rotate(-16deg)}45%{transform:rotate(14deg)}70%{transform:rotate(-8deg)}}
+@keyframes fabpulse{0%{box-shadow:0 8px 24px rgba(8,60,35,.38),0 0 0 0 rgba(31,169,90,.55)}70%,100%{box-shadow:0 8px 24px rgba(8,60,35,.38),0 0 0 16px rgba(31,169,90,0)}}
+.fab.show{opacity:1;transform:none;pointer-events:auto}
+@media (max-width:860px){
+  .fab{padding:8px;gap:0}
+  .fab-ico{width:46px;height:46px}
+  .fab-ico svg{width:30px;height:30px}
+  .fab-txt{display:none}
+  .menu{display:block}
+  .bar>.hbtn{display:none}
+  .logo small{display:none}
+  nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--surface);border-bottom:1px solid var(--line);padding:16px 24px;flex-direction:column;gap:16px}
+  nav.open{display:flex;animation:swap .25s ease}
+  .hero .wrap{grid-template-columns:1fr;padding-top:56px;padding-bottom:56px}
+  .lens{max-width:240px}
+  .svc,.svc.wide{grid-column:span 6}
+  .why,.contact{grid-template-columns:1fr}
+  .sec{padding:56px 0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ring,.sweep,.blink,.pill i,.tel i,.btn,.fab,.chip{animation:none!important}.btn::after,.ripple{display:none}.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#inicio" aria-label="TK Sistemas de Segurança, início"><b>TK</b><span>Sistemas de Segurança<small>Segurança eletrônica e chaveiro</small></span></a>
+    <nav id="nav" aria-label="Principal">
+      <a href="#servicos">Serviços</a><a href="#diferenciais">Diferenciais</a><a href="#faq">Perguntas</a><a href="#contato">Contato</a>
+    </nav>
+    <div class="tools">
+      <a class="tel" href="tel:+5541900000000" aria-label="Ligar para o plantão 24 horas"><i></i>Plantão 24h</a>
+      <button class="icon-btn" id="theme" type="button" aria-label="Alternar tema claro e escuro">◐</button>
+      <a class="btn hbtn" href="#contato">Pedir orçamento</a>
+      <button class="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    </div>
+  </div>
+  <i class="prog" id="prog"></i>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <canvas class="matrix" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div>
+        <span class="pill"><i></i>Plantão de chaveiro 24h ativo</span>
+        <h1>Segurança eletrônica para quem não pode deixar nada ao acaso.</h1>
+        <p class="lead">Câmeras, alarmes, portões automáticos, controle de acesso e chaveiro 24 horas, com instalação e manutenção feitas pela mesma equipe.</p>
+        <a class="btn" href="#contato">Pedir orçamento</a>
+        <a class="btn ghost" href="#servicos">Ver serviços</a>
+      </div>
+      <svg class="lens" viewBox="0 0 320 320" role="img" aria-label="Lente de câmera de segurança">
+        <circle class="ring" cx="160" cy="160" r="150" fill="none" stroke="#8FB0D4" stroke-opacity=".45" stroke-width="2" stroke-dasharray="4 10"/>
+        <path class="sweep" d="M160 160L160 42A118 118 0 0 1 244 77Z" fill="#8FB0D4" fill-opacity=".16"/>
+        <circle cx="160" cy="160" r="118" fill="#1B2A3A" stroke="#8FB0D4" stroke-opacity=".6" stroke-width="2"/>
+        <circle cx="160" cy="160" r="80" fill="#142130" stroke="#8FB0D4" stroke-width="2"/>
+        <g id="eye"><circle cx="160" cy="160" r="40" fill="#0C1722" stroke="#8FB0D4" stroke-opacity=".8" stroke-width="2"/>
+        <circle cx="146" cy="146" r="9" fill="#EAF0F6" fill-opacity=".85"/></g>
+        <circle class="blink" cx="262" cy="64" r="7" fill="#FF8C8C"/>
+        <path d="M160 10v24M160 286v24M10 160h24M286 160h24" stroke="#8FB0D4" stroke-opacity=".5" stroke-width="2"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="sec" id="servicos">
+    <div class="wrap">
+      <h2>Serviços</h2>
+      <p class="intro">Proteção para residências e comércios, do projeto à manutenção.</p>
+      <div class="grid">
+        <article class="svc">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8h13a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H3z"/><path d="M18 11l4-2v6l-4-2"/><path d="M7 16v3h6v-3"/></svg>
+          <h3>CFTV: câmeras e DVR</h3>
+          <p>Instalação e manutenção de sistemas completos, com gravação contínua e acesso às imagens em tempo real.</p>
+        </article>
+        <article class="svc">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M12 8v5M12 16v.5"/></svg>
+          <h3>Alarmes e cercas elétricas</h3>
+          <p>Proteção do perímetro com centrais de alarme e disparo imediato, para casas e comércios.</p>
+        </article>
+        <article class="svc">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20V8M21 20V8M3 8h18"/><path d="M7 20v-8h10v8"/><path d="M9 4h6"/></svg>
+          <h3>Automatização de portões</h3>
+          <p>Motores para portões basculantes, deslizantes e pivotantes, com agilidade e praticidade no dia a dia.</p>
+        </article>
+        <article class="svc wide">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><path d="M12 15v2"/></svg>
+          <h3>Controle de acesso e fechaduras</h3>
+          <p>Instalação e manutenção de fechaduras digitais, eletroímãs e controles de acesso para empresas e residências.</p>
+        </article>
+        <article class="svc wide">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3M14 9l2 2"/></svg>
+          <h3>Chaveiro</h3>
+          <p>Aberturas, trocas de segredo e serviços residenciais e comerciais, com equipe pronta para emergências.</p>
+        </article>
+        <div class="night" id="chaveiro">
+          <div>
+            <h3>Chaveiro 24 horas: plantão de emergência</h3>
+            <p>Trancado para fora ou com a fechadura danificada? Nosso plantão atende a qualquer hora, todos os dias, em residências e comércios.</p>
+          </div>
+          <a class="btn" href="tel:+5541900000000">Ligar agora</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec band" id="diferenciais">
+    <div class="wrap">
+      <h2>Por que escolher a TK</h2>
+      <p class="intro">Tecnologia de segurança com atendimento direto e acompanhamento depois da instalação.</p>
+      <div class="why">
+        <div><h3>Solução completa</h3><p>Câmeras, alarmes, portões e fechaduras com um único responsável pelo projeto e pela manutenção.</p></div>
+        <div><h3>Atendimento 24 horas</h3><p>Plantão de chaveiro para emergências, sem esperar o próximo dia útil.</p></div>
+        <div><h3>Para casa e empresa</h3><p>Projetos ajustados ao tamanho e à rotina de cada residência ou comércio.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="solucao">
+    <div class="wrap">
+      <h2>Qual solução serve para você?</h2>
+      <p class="intro">Escolha o que você precisa resolver e veja o serviço indicado.</p>
+      <div class="chips" role="group" aria-label="O que você precisa">
+        <button class="chip" type="button" data-k="cftv" aria-pressed="true">Ver o que acontece no local</button>
+        <button class="chip" type="button" data-k="alarme" aria-pressed="false">Proteger muro e entrada</button>
+        <button class="chip" type="button" data-k="portao" aria-pressed="false">Automatizar o portão</button>
+        <button class="chip" type="button" data-k="acesso" aria-pressed="false">Controlar quem entra</button>
+        <button class="chip" type="button" data-k="chave" aria-pressed="false">Estou trancado para fora</button>
+      </div>
+      <div class="rbox" id="rbox" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="sec band" id="faq">
+    <div class="wrap">
+      <h2>Perguntas frequentes</h2>
+      <p class="intro">Respostas rápidas antes de pedir seu orçamento.</p>
+      <details><summary>Consigo ver as imagens das câmeras em tempo real?</summary><p>Sim. Os sistemas de CFTV com DVR gravam continuamente e dão acesso às imagens em tempo real.</p></details>
+      <details><summary>Vocês fazem instalação e manutenção?</summary><p>Fazemos os dois, em CFTV, alarmes, cercas elétricas, portões e controle de acesso.</p></details>
+      <details><summary>O chaveiro atende de madrugada e nos fins de semana?</summary><p>Sim. O plantão funciona 24 horas para aberturas, trocas de segredo e serviços residenciais e comerciais.</p></details>
+      <details><summary>Quais tipos de portão podem ser automatizados?</summary><p>Basculantes, deslizantes e pivotantes. Informe o seu modelo no pedido de orçamento.</p></details>
+      <details><summary>Atendem casas e empresas?</summary><p>Atendemos residências e comércios, com projetos ajustados a cada local.</p></details>
+      <p class="more">Não achou sua dúvida? <a href="https://wa.me/5541900000000" target="_blank" rel="noopener">Pergunte pelo WhatsApp</a>.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="contato">
+    <div class="wrap">
+      <h2>Peça seu orçamento</h2>
+      <p class="intro">Conte o que você precisa proteger e retornamos com uma proposta.</p>
+      <div class="contact">
+        <div class="info">
+          <div><span>Telefone e plantão 24h</span><strong>(41) 90000-0000</strong></div>
+          <div><span>WhatsApp</span><strong>(41) 90000-0000</strong></div>
+          <div><span>E-mail</span><strong>contato@tksistemas.com.br</strong></div>
+          <div><span>Endereço</span><strong>Rua Exemplo, 123, Curitiba, PR</strong></div>
+        </div>
+        <form id="f">
+          <label>Nome<input name="nome" required autocomplete="name"></label>
+          <label>Serviço de interesse
+            <select name="servico">
+              <option>CFTV (câmeras e DVR)</option><option>Alarmes e cercas elétricas</option><option>Automatização de portões</option><option>Controle de acesso e fechaduras</option><option>Chaveiro 24h</option>
+            </select>
+          </label>
+          <label>Mensagem<textarea name="msg" placeholder="Descreva o local e o que precisa."></textarea></label>
+          <button class="btn" type="submit">Enviar pelo WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><strong>TK Sistemas de Segurança</strong><span>© 2026 TK Sistemas de Segurança. Todos os direitos reservados.</span></div>
+</footer>
+
+<script>
+document.getElementById('f').addEventListener('submit',function(e){
+  e.preventDefault();
+  var d=new FormData(e.target);
+  var t='Olá, sou '+d.get('nome')+'. Tenho interesse em: '+d.get('servico')+'. '+(d.get('msg')||'');
+  window.open('https://wa.me/5541900000000?text='+encodeURIComponent(t),'_blank','noopener');
+});
+</script>
+<a class="fab" href="https://wa.me/5541900000000?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20TK%20Sistemas%20de%20Seguran%C3%A7a." target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><span class="fab-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.014 8.00613C6.12827 7.1024 7.30277 5.87414 8.23488 6.01043L8.23339 6.00894C9.14051 6.18132 9.85859 7.74261 10.2635 8.44465C10.5504 8.95402 10.3641 9.4701 10.0965 9.68787C9.7355 9.97883 9.17099 10.3803 9.28943 10.7834C9.5 11.5 12 14 13.2296 14.7107C13.695 14.9797 14.0325 14.2702 14.3207 13.9067C14.5301 13.6271 15.0466 13.46 15.5548 13.736C16.3138 14.178 17.0288 14.6917 17.69 15.27C18.0202 15.546 18.0977 15.9539 17.8689 16.385C17.4659 17.1443 16.3003 18.1456 15.4542 17.9421C13.9764 17.5868 8 15.27 6.08033 8.55801C5.97237 8.24048 5.99955 8.12044 6.014 8.00613Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 23C10.7764 23 10.0994 22.8687 9 22.5L6.89443 23.5528C5.56462 24.2177 4 23.2507 4 21.7639V19.5C1.84655 17.492 1 15.1767 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23ZM6 18.6303L5.36395 18.0372C3.69087 16.4772 3 14.7331 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C11.0143 21 10.552 20.911 9.63595 20.6038L8.84847 20.3397L6 21.7639V18.6303Z"/></svg></span><span class="fab-txt">Falar no WhatsApp</span></a>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)},$$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+var h=$('header'),p=$('#prog'),fab=$('.fab');
+function onS(){var y=window.scrollY,m=document.documentElement.scrollHeight-window.innerHeight;h.classList.toggle('sc',y>10);p.style.transform='scaleX('+(m>0?y/m:0)+')';fab.classList.toggle('show',y>400)}
+addEventListener('scroll',onS,{passive:true});onS();
+var links=$$('nav a'),secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+function spy(){var cur=-1;secs.forEach(function(s,i){if(s.getBoundingClientRect().top<=120)cur=i});if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4)cur=secs.length-1;links.forEach(function(a,i){a.classList.toggle('act',i===cur);if(i===cur)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')})}
+addEventListener('scroll',spy,{passive:true});spy();
+var nav=$('#nav'),mb=$('.menu');
+mb.addEventListener('click',function(){mb.setAttribute('aria-expanded',nav.classList.toggle('open'))});
+nav.addEventListener('click',function(){nav.classList.remove('open');mb.setAttribute('aria-expanded','false')});
+var root=document.documentElement;
+$('#theme').addEventListener('click',function(){var d=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;root.dataset.theme=d?'light':'dark'});
+var eye=$('#eye'),lens=$('.lens');
+addEventListener('pointermove',function(e){var r=lens.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2),d=Math.hypot(dx,dy)||1,k=Math.min(d,300)/300*22;eye.style.transform='translate('+dx/d*k+'px,'+dy/d*k+'px)'});
+if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion:reduce)').matches){
+ var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){var el=en.target;el.classList.add('in');io.unobserve(el);setTimeout(function(){el.style.transitionDelay='0ms'},900)}})},{threshold:.15});
+ $$('.svc,.night,.why>div,.info>div,form,.chips,.rbox,details').forEach(function(el,i){el.classList.add('reveal');el.style.transitionDelay=(i%3)*90+'ms';io.observe(el)});
+}
+var R={
+cftv:['CFTV com câmeras e DVR','Gravação contínua e acesso às imagens em tempo real, com instalação e manutenção.','CFTV (câmeras e DVR)'],
+alarme:['Alarmes e cercas elétricas','Proteção do perímetro com central de alarme e disparo imediato.','Alarmes e cercas elétricas'],
+portao:['Automatização de portões','Motores para portões basculantes, deslizantes e pivotantes.','Automatização de portões'],
+acesso:['Controle de acesso e fechaduras','Fechaduras digitais, eletroímãs e controles de acesso para empresas e residências.','Controle de acesso e fechaduras'],
+chave:['Chaveiro 24 horas','Plantão de emergência para abertura, troca de segredo e serviços residenciais e comerciais.','Chaveiro 24h']};
+var box=$('#rbox');
+function show(k){var r=R[k];box.innerHTML='<div><h3></h3><p></p></div>'+(k==='chave'?'<a class="btn" href="tel:+5541900000000">Ligar agora</a>':'<a class="btn" href="#contato" data-s="'+r[2]+'">Pedir orçamento deste serviço</a>');box.querySelector('h3').textContent=r[0];box.querySelector('p').textContent=r[1]}
+$$('.chip').forEach(function(c){c.addEventListener('click',function(){$$('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===c)});show(c.dataset.k)})});
+box.addEventListener('click',function(e){var s=e.target.dataset&&e.target.dataset.s;if(s)document.querySelector('select[name=servico]').value=s});
+var rm=matchMedia('(prefers-reduced-motion:reduce)').matches,fs=$$('details');
+function anim(d,f,t,done){d.style.overflow='hidden';var a=d.animate([{height:f+'px'},{height:t+'px'}],{duration:300,easing:'ease'});a.onfinish=function(){d.style.overflow='';if(done)done()}}
+function openD(d){var f=d.offsetHeight;d.open=true;if(!rm)anim(d,f,d.offsetHeight)}
+function closeD(d){var f=d.offsetHeight,t=d.querySelector('summary').offsetHeight+2;if(rm){d.open=false;return}anim(d,f,t,function(){d.open=false})}
+fs.forEach(function(d){d.querySelector('summary').addEventListener('click',function(e){e.preventDefault();if(d.open){closeD(d)}else{fs.forEach(function(o){if(o!==d&&o.open)closeD(o)});openD(d)}})});
+show('cftv');
+document.addEventListener('pointerdown',function(e){var b=e.target.closest&&e.target.closest('.btn,.chip,.fab');if(!b||matchMedia('(prefers-reduced-motion:reduce)').matches)return;var r=b.getBoundingClientRect(),s=Math.max(r.width,r.height),x=document.createElement('span');x.className='ripple';x.style.cssText='width:'+s+'px;height:'+s+'px;left:'+(e.clientX-r.left-s/2)+'px;top:'+(e.clientY-r.top-s/2)+'px';b.appendChild(x);setTimeout(function(){x.remove()},650)});
+})();
+</script>
+<script>
+(function(){
+var c=document.querySelector('.matrix');if(!c)return;
+var x=c.getContext('2d'),hero=c.parentNode,ch='アイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789ABCDEFXYZ<>+=',
+fs=16,cols,rows,a,h,g,dpr,run=false,last=0,still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function r(){return ch.charAt(Math.random()*ch.length|0)}
+function size(){
+  dpr=Math.min(devicePixelRatio||1,2);
+  var w=hero.clientWidth,hh=hero.clientHeight;
+  c.width=w*dpr;c.height=hh*dpr;
+  cols=Math.ceil(w/fs);rows=Math.ceil(hh/fs);
+  a=[];h=[];g=[];
+  for(var i=0;i<cols;i++){a.push(new Float32Array(rows));g.push([]);for(var k=0;k<rows;k++)g[i].push(r());h.push(Math.random()<.45?Math.random()*rows:-1e9)}
+  x.setTransform(dpr,0,0,dpr,0,0);x.font=fs+'px monospace';x.textBaseline='top';
+  if(still)draw(true);
+}
+function draw(init){
+  x.clearRect(0,0,c.width,c.height);
+  for(var i=0;i<cols;i++){
+    var col=a[i];
+    if(!init){
+      if(h[i]<-1e8){if(Math.random()<.002)h[i]=0}
+      else{h[i]+=.04+(i%4)*.01;
+      if(h[i]>rows+8)h[i]=Math.random()<.5?-1e9:-Math.random()*rows;
+      var y=h[i]|0;if(y>=0&&y<rows)col[y]=1}
+    }else if(Math.random()<.3){col[Math.random()*rows|0]=Math.random()}
+    for(var j=0;j<rows;j++){
+      var v=col[j];if(v<.03)continue;
+      if(!init){col[j]=v*.98;if(Math.random()<.004)g[i][j]=r()}
+      x.fillStyle='rgba(143,176,212,'+v.toFixed(2)+')';
+      x.fillText(g[i][j],i*fs,j*fs);
+    }
+  }
+}
+function loop(t){
+  if(!run)return;
+  if(t-last>80){last=t;draw()}
+  requestAnimationFrame(loop);
+}
+size();
+if(!still&&'IntersectionObserver' in window){
+  new IntersectionObserver(function(e){
+    var on=e[0].isIntersecting;
+    if(on&&!run){run=true;requestAnimationFrame(loop)}else if(!on)run=false;
+  }).observe(hero);
+}
+var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(size,150)});
+})();
+</script>
+</body>
+</html>
