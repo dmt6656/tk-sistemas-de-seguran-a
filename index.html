@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>TK Sistemas de Segurança | CFTV, alarmes, portões, controle de acesso e chaveiro 24h</title>
 <meta name="description" content="Segurança eletrônica, controle de acesso e chaveiro 24h para residências e empresas.">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1C2530" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -80,10 +83,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 footer span{opacity:.75}
 .menu{display:none;background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:8px 12px;font:600 15px var(--body);cursor:pointer}
 .tools{display:flex;gap:10px;align-items:center}
-.btn,.chip,.icon-btn,.menu,.fab{transition:transform .2s ease,box-shadow .2s ease,background .2s,color .2s,border-color .2s,filter .2s}
+.btn,.chip,.icon-btn,.menu{transition:transform .2s ease,box-shadow .2s ease,background .2s,color .2s,border-color .2s,filter .2s}
 .btn,.chip{position:relative;overflow:hidden}
 .btn{isolation:isolate}
-.fab{overflow:hidden}
 .btn::after{content:"";position:absolute;top:0;left:-70%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);transition:left .6s ease;z-index:-1}
 .btn:hover::after{left:130%}
 .btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(20,30,45,.25)}
@@ -92,15 +94,12 @@ footer span{opacity:.75}
 .chip:hover{transform:translateY(-2px)}
 .chip[aria-pressed=true]{animation:pop .3s ease}
 .icon-btn:hover{transform:rotate(25deg)}
-.btn:active,.chip:active,.icon-btn:active,.menu:active,.fab:active{transform:translateY(0) scale(.95);box-shadow:none}
+.btn:active,.chip:active,.icon-btn:active,.menu:active{transform:translateY(0) scale(.95);box-shadow:none}
 .hero .btn:not(.ghost),.night .btn{animation:halo 2.4s ease-out infinite}
 .hero .btn:hover,.night .btn:hover{animation:none}
-.fab.show{animation:bob 3s ease-in-out infinite,fabpulse 2.6s ease-out infinite}
-.fab.show:hover{animation:none;transform:translateY(-3px) scale(1.03)}
 .ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.45);transform:scale(0);animation:rip .6s ease-out;pointer-events:none}
 @keyframes pop{50%{transform:scale(1.07)}}
 @keyframes halo{0%{box-shadow:0 0 0 0 rgba(143,176,212,.6)}70%,100%{box-shadow:0 0 0 14px rgba(143,176,212,0)}}
-@keyframes bob{50%{transform:translateY(-5px)}}
 @keyframes rip{to{transform:scale(4);opacity:0}}
 .icon-btn{background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;width:40px;height:40px;font-size:18px;cursor:pointer}
 .icon-btn:hover,.menu:hover{background:var(--soft)}
@@ -159,24 +158,7 @@ summary{transition:color .2s}
 summary::after{color:var(--brand)}
 .more{margin-top:22px;color:var(--muted)}
 .more a{color:var(--brand);font-weight:600}
-.fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:9;display:inline-flex;align-items:center;gap:10px;padding:10px 20px 10px 12px;border-radius:99px;background:linear-gradient(135deg,#1FA95A,#0E7A45);color:#fff;font:600 16px var(--body);text-decoration:none;box-shadow:0 8px 24px rgba(8,60,35,.38);opacity:0;transform:translateY(20px);pointer-events:none;isolation:isolate;-webkit-tap-highlight-color:transparent;transition:opacity .3s,transform .25s ease,box-shadow .25s ease,filter .25s,gap .25s}
-.fab::before{content:"";position:absolute;top:0;left:-70%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);transition:left .6s ease;z-index:-1}
-.fab:hover::before{left:130%}
-.fab-ico{position:relative;flex:none;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.18);transition:background .25s,transform .3s}
-.fab-ico svg{width:26px;height:26px;fill:currentColor;transform-origin:50% 60%}
-.fab-ico::after{content:"";position:absolute;top:1px;right:1px;width:9px;height:9px;border-radius:50%;background:#7CFFB0;box-shadow:0 0 0 2px #0E7A45}
-.fab:hover,.fab:focus-visible{filter:brightness(1.08);box-shadow:0 12px 30px rgba(8,60,35,.5)}
-.fab:hover .fab-ico,.fab:focus-visible .fab-ico{background:rgba(255,255,255,.28);transform:scale(1.08)}
-.fab:hover .fab-ico svg,.fab:focus-visible .fab-ico svg{animation:wag .7s ease}
-.fab:focus-visible{outline:3px solid #fff;outline-offset:3px}
-@keyframes wag{0%,100%{transform:rotate(0)}20%{transform:rotate(-16deg)}45%{transform:rotate(14deg)}70%{transform:rotate(-8deg)}}
-@keyframes fabpulse{0%{box-shadow:0 8px 24px rgba(8,60,35,.38),0 0 0 0 rgba(31,169,90,.55)}70%,100%{box-shadow:0 8px 24px rgba(8,60,35,.38),0 0 0 16px rgba(31,169,90,0)}}
-.fab.show{opacity:1;transform:none;pointer-events:auto}
 @media (max-width:860px){
-  .fab{padding:8px;gap:0}
-  .fab-ico{width:46px;height:46px}
-  .fab-ico svg{width:30px;height:30px}
-  .fab-txt{display:none}
   .menu{display:block}
   .bar>.hbtn{display:none}
   .logo small{display:none}
@@ -188,7 +170,87 @@ summary::after{color:var(--brand)}
   .why,.contact{grid-template-columns:1fr}
   .sec{padding:56px 0}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ring,.sweep,.blink,.pill i,.tel i,.btn,.fab,.chip{animation:none!important}.btn::after,.ripple{display:none}.reveal{opacity:1;transform:none;transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ring,.sweep,.blink,.pill i,.tel i,.btn,.chip{animation:none!important}.btn::after,.ripple{display:none}.reveal{opacity:1;transform:none;transition:none}}
+/* ===== Mobile ===== */
+html{-webkit-text-size-adjust:100%}
+body{overflow-wrap:break-word}
+.btn,.chip,.icon-btn,.menu,summary{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.icon-btn{min-width:44px;min-height:44px}
+.menu{min-height:44px}
+input,select{min-height:48px}
+.info a{text-decoration:none}
+.info a strong{color:var(--brand);overflow-wrap:anywhere}
+.mbar{display:none}
+@media (hover:none){
+  .btn:hover,.chip:hover,.icon-btn:hover,.tel:hover,.svc.in:hover{transform:none;box-shadow:none}
+  .btn:hover::after{left:-70%}
+}
+@media (max-width:860px){
+  .wrap{padding:0 20px}
+  .bar{height:60px}
+  header.sc .bar{height:56px}
+  .logo{min-width:0;font-size:16px;line-height:1.15}
+  .tools{flex:none;gap:8px}
+  .tools>.hbtn{display:none}
+  .logo span{min-width:0}
+  .hero .btn:not(.ghost),.night .btn{animation:none}
+  nav{padding:6px 20px 14px;gap:0}
+  nav a{padding:14px 0;font-size:18px;border-bottom:1px solid var(--line)}
+  nav a:last-child{border-bottom:0}
+  nav a::after{display:none}
+  nav a.act{color:var(--brand)}
+  .hero .wrap{gap:32px;padding-top:44px;padding-bottom:48px}
+  .hero p.lead{font-size:18px;margin:16px 0 28px}
+  .lens{max-width:200px}
+  .sec .intro{margin-bottom:28px}
+  .svc{padding:22px}
+  .night,.rbox{padding:22px}
+  form{padding:20px}
+  .why{gap:24px}
+  .chip{min-height:44px}
+  .fab{display:none}
+  .mbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:9;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--surface);border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(20,30,45,.12)}
+  .mbar{animation:mbarin .7s var(--ease) .3s both}
+  .mbar a{display:flex;align-items:center;justify-content:center;gap:9px;position:relative;overflow:hidden;isolation:isolate;min-height:48px;border-radius:10px;font:600 16px/1 var(--body);text-decoration:none;touch-action:manipulation;-webkit-tap-highlight-color:transparent;transition:filter .2s ease,box-shadow .3s var(--ease)}
+  .mbar a:active{filter:brightness(.92)}
+  .mbar svg{flex:none;width:22px;height:22px}
+  .mb-call{background:var(--brand);color:var(--on-brand)}
+  .mb-call svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .mb-wa{background:linear-gradient(135deg,var(--wa1),var(--wa2));color:#fff;box-shadow:0 4px 14px rgba(6,50,28,.28)}
+  .mb-wa svg{fill:currentColor}
+  .mb-wa::before{content:"";position:absolute;inset:0 auto 0 0;width:45%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.32),transparent);transform:translateX(-160%) skewX(-20deg);z-index:-1;animation:fabshine 7s var(--ease) 2.5s infinite}
+  footer{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+}
+@media (max-width:380px){
+  .logo{font-size:14px;gap:8px}
+  .logo b{width:34px;height:34px}
+}
+@media (max-width:600px){
+  .hero .btn,.night .btn,.rbox .btn,form .btn{display:block;width:100%;text-align:center}
+  .hero .btn.ghost{margin-top:12px}
+  footer .wrap{flex-direction:column}
+}
+/* ===== Botão flutuante do WhatsApp (sem aumento de tamanho: só deslocamento, brilho e sombra) ===== */
+:root{--wa1:#0F8040;--wa2:#0A6232;--ease:cubic-bezier(.22,1,.36,1)}
+.fab{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:9;display:inline-flex;align-items:center;gap:12px;padding:8px 24px 8px 8px;border-radius:99px;background:linear-gradient(135deg,var(--wa1),var(--wa2));color:#fff;font:600 16px/1 var(--body);letter-spacing:.005em;white-space:nowrap;text-decoration:none;overflow:hidden;isolation:isolate;touch-action:manipulation;-webkit-tap-highlight-color:transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 8px 22px rgba(6,50,28,.35);opacity:0;visibility:hidden;pointer-events:none;transform:translate3d(0,26px,0);will-change:transform,opacity;transition:opacity .35s ease,transform .5s var(--ease),visibility 0s .5s,box-shadow .4s var(--ease),filter .25s ease}
+.fab.show{opacity:1;visibility:visible;pointer-events:auto;transform:none;transition:opacity .45s ease,transform .7s var(--ease),visibility 0s,box-shadow .4s var(--ease),filter .25s ease;animation:fabfloat 5s ease-in-out 1s infinite,fabglow 3.2s ease-in-out 1s infinite}
+.fab::before{content:"";position:absolute;inset:0 auto 0 0;width:45%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.34),transparent);transform:translateX(-160%) skewX(-20deg);z-index:-1;animation:fabshine 8s var(--ease) 2.5s infinite}
+.fab-ico{position:relative;flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.16);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
+.fab-ico svg{width:26px;height:26px;fill:currentColor;transform-origin:50% 60%;animation:fabring 7s ease-in-out 3s infinite}
+.fab-ico::after{content:"";position:absolute;top:0;right:0;width:11px;height:11px;border-radius:50%;background:#7CFFB0;box-shadow:0 0 0 2.5px var(--wa2);animation:fabdot 2.4s ease-in-out infinite}
+.fab:hover,.fab:focus-visible{filter:brightness(1.07);box-shadow:inset 0 1px 0 rgba(255,255,255,.26),0 14px 32px rgba(6,50,28,.5)}
+.fab:hover::before{animation:fabshine .9s var(--ease) 1}
+.fab:active{filter:brightness(.94);transition-duration:.12s}
+.fab:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+@keyframes fabfloat{50%{translate:0 -5px}}
+@keyframes fabglow{50%{box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 12px 34px rgba(15,128,64,.6)}}
+@keyframes fabshine{0%{transform:translateX(-160%) skewX(-20deg)}16%,100%{transform:translateX(420%) skewX(-20deg)}}
+@keyframes fabring{0%,14%,100%{transform:rotate(0)}3%{transform:rotate(-14deg)}6%{transform:rotate(12deg)}9%{transform:rotate(-8deg)}12%{transform:rotate(4deg)}}
+@keyframes fabdot{50%{opacity:.5}}
+@keyframes mbarin{from{transform:translateY(100%)}to{transform:none}}
+@media (max-width:860px){.fab{display:none}}
+@media (hover:none){.fab:hover{filter:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 8px 22px rgba(6,50,28,.35)}.fab:hover::before{animation:fabshine 8s var(--ease) 2.5s infinite}}
+@media (prefers-reduced-motion:reduce){.fab,.fab.show,.fab::before,.fab-ico svg,.fab-ico::after,.mbar,.mb-wa::before{animation:none!important}.fab{transition:opacity .2s linear,visibility 0s}.fab::before,.mb-wa::before{display:none}}
 </style>
 </head>
 <body>
@@ -319,13 +381,13 @@ summary::after{color:var(--brand)}
       <p class="intro">Conte o que você precisa proteger e retornamos com uma proposta.</p>
       <div class="contact">
         <div class="info">
-          <div><span>Telefone e plantão 24h</span><strong>(41) 90000-0000</strong></div>
-          <div><span>WhatsApp</span><strong>(41) 90000-0000</strong></div>
-          <div><span>E-mail</span><strong>contato@tksistemas.com.br</strong></div>
+          <div><span>Telefone e plantão 24h</span><a href="tel:+5541900000000"><strong>(41) 90000-0000</strong></a></div>
+          <div><span>WhatsApp</span><a href="https://wa.me/5541900000000" target="_blank" rel="noopener"><strong>(41) 90000-0000</strong></a></div>
+          <div><span>E-mail</span><a href="mailto:contato@tksistemas.com.br"><strong>contato@tksistemas.com.br</strong></a></div>
           <div><span>Endereço</span><strong>Rua Exemplo, 123, Curitiba, PR</strong></div>
         </div>
         <form id="f">
-          <label>Nome<input name="nome" required autocomplete="name"></label>
+          <label>Nome<input name="nome" required autocomplete="name" enterkeyhint="next"></label>
           <label>Serviço de interesse
             <select name="servico">
               <option>CFTV (câmeras e DVR)</option><option>Alarmes e cercas elétricas</option><option>Automatização de portões</option><option>Controle de acesso e fechaduras</option><option>Chaveiro 24h</option>
@@ -351,7 +413,12 @@ document.getElementById('f').addEventListener('submit',function(e){
   window.open('https://wa.me/5541900000000?text='+encodeURIComponent(t),'_blank','noopener');
 });
 </script>
-<a class="fab" href="https://wa.me/5541900000000?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20TK%20Sistemas%20de%20Seguran%C3%A7a." target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><span class="fab-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.014 8.00613C6.12827 7.1024 7.30277 5.87414 8.23488 6.01043L8.23339 6.00894C9.14051 6.18132 9.85859 7.74261 10.2635 8.44465C10.5504 8.95402 10.3641 9.4701 10.0965 9.68787C9.7355 9.97883 9.17099 10.3803 9.28943 10.7834C9.5 11.5 12 14 13.2296 14.7107C13.695 14.9797 14.0325 14.2702 14.3207 13.9067C14.5301 13.6271 15.0466 13.46 15.5548 13.736C16.3138 14.178 17.0288 14.6917 17.69 15.27C18.0202 15.546 18.0977 15.9539 17.8689 16.385C17.4659 17.1443 16.3003 18.1456 15.4542 17.9421C13.9764 17.5868 8 15.27 6.08033 8.55801C5.97237 8.24048 5.99955 8.12044 6.014 8.00613Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 23C10.7764 23 10.0994 22.8687 9 22.5L6.89443 23.5528C5.56462 24.2177 4 23.2507 4 21.7639V19.5C1.84655 17.492 1 15.1767 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23ZM6 18.6303L5.36395 18.0372C3.69087 16.4772 3 14.7331 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C11.0143 21 10.552 20.911 9.63595 20.6038L8.84847 20.3397L6 21.7639V18.6303Z"/></svg></span><span class="fab-txt">Falar no WhatsApp</span></a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-wa" viewBox="0 0 24 24"><path d="M6.014 8.00613C6.12827 7.1024 7.30277 5.87414 8.23488 6.01043L8.23339 6.00894C9.14051 6.18132 9.85859 7.74261 10.2635 8.44465C10.5504 8.95402 10.3641 9.4701 10.0965 9.68787C9.7355 9.97883 9.17099 10.3803 9.28943 10.7834C9.5 11.5 12 14 13.2296 14.7107C13.695 14.9797 14.0325 14.2702 14.3207 13.9067C14.5301 13.6271 15.0466 13.46 15.5548 13.736C16.3138 14.178 17.0288 14.6917 17.69 15.27C18.0202 15.546 18.0977 15.9539 17.8689 16.385C17.4659 17.1443 16.3003 18.1456 15.4542 17.9421C13.9764 17.5868 8 15.27 6.08033 8.55801C5.97237 8.24048 5.99955 8.12044 6.014 8.00613Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 23C10.7764 23 10.0994 22.8687 9 22.5L6.89443 23.5528C5.56462 24.2177 4 23.2507 4 21.7639V19.5C1.84655 17.492 1 15.1767 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23ZM6 18.6303L5.36395 18.0372C3.69087 16.4772 3 14.7331 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C11.0143 21 10.552 20.911 9.63595 20.6038L8.84847 20.3397L6 21.7639V18.6303Z"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+</defs></svg>
+<div class="mbar" role="group" aria-label="Contato rápido"><a class="mb-call" href="tel:+5541900000000"><svg aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>Ligar agora</a><a class="mb-wa" href="https://wa.me/5541900000000?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20TK%20Sistemas%20de%20Seguran%C3%A7a." target="_blank" rel="noopener" aria-label="WhatsApp (abre em nova aba)"><svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>WhatsApp</a></div>
+<a class="fab" href="https://wa.me/5541900000000?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20TK%20Sistemas%20de%20Seguran%C3%A7a." target="_blank" rel="noopener" aria-label="Falar no WhatsApp (abre em nova aba)"><span class="fab-ico"><svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg></span><span class="fab-txt">Falar no WhatsApp</span></a>
 <script>
 (function(){
 var $=function(s){return document.querySelector(s)},$$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
@@ -364,6 +431,8 @@ addEventListener('scroll',spy,{passive:true});spy();
 var nav=$('#nav'),mb=$('.menu');
 mb.addEventListener('click',function(){mb.setAttribute('aria-expanded',nav.classList.toggle('open'))});
 nav.addEventListener('click',function(){nav.classList.remove('open');mb.setAttribute('aria-expanded','false')});
+document.addEventListener('click',function(e){if(nav.classList.contains('open')&&!e.target.closest('header')){nav.classList.remove('open');mb.setAttribute('aria-expanded','false')}});
+addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){nav.classList.remove('open');mb.setAttribute('aria-expanded','false');mb.focus()}});
 var root=document.documentElement;
 $('#theme').addEventListener('click',function(){var d=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;root.dataset.theme=d?'light':'dark'});
 var eye=$('#eye'),lens=$('.lens');
@@ -388,14 +457,14 @@ function openD(d){var f=d.offsetHeight;d.open=true;if(!rm)anim(d,f,d.offsetHeigh
 function closeD(d){var f=d.offsetHeight,t=d.querySelector('summary').offsetHeight+2;if(rm){d.open=false;return}anim(d,f,t,function(){d.open=false})}
 fs.forEach(function(d){d.querySelector('summary').addEventListener('click',function(e){e.preventDefault();if(d.open){closeD(d)}else{fs.forEach(function(o){if(o!==d&&o.open)closeD(o)});openD(d)}})});
 show('cftv');
-document.addEventListener('pointerdown',function(e){var b=e.target.closest&&e.target.closest('.btn,.chip,.fab');if(!b||matchMedia('(prefers-reduced-motion:reduce)').matches)return;var r=b.getBoundingClientRect(),s=Math.max(r.width,r.height),x=document.createElement('span');x.className='ripple';x.style.cssText='width:'+s+'px;height:'+s+'px;left:'+(e.clientX-r.left-s/2)+'px;top:'+(e.clientY-r.top-s/2)+'px';b.appendChild(x);setTimeout(function(){x.remove()},650)});
+document.addEventListener('pointerdown',function(e){var b=e.target.closest&&e.target.closest('.btn,.chip,.fab,.mbar a');if(!b||matchMedia('(prefers-reduced-motion:reduce)').matches)return;var r=b.getBoundingClientRect(),s=Math.max(r.width,r.height),x=document.createElement('span');x.className='ripple';x.style.cssText='width:'+s+'px;height:'+s+'px;left:'+(e.clientX-r.left-s/2)+'px;top:'+(e.clientY-r.top-s/2)+'px';b.appendChild(x);setTimeout(function(){x.remove()},650)});
 })();
 </script>
 <script>
 (function(){
 var c=document.querySelector('.matrix');if(!c)return;
 var x=c.getContext('2d'),hero=c.parentNode,ch='アイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789ABCDEFXYZ<>+=',
-fs=16,cols,rows,a,h,g,dpr,run=false,last=0,still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+fs=matchMedia('(max-width:860px)').matches?20:16,cols,rows,a,h,g,dpr,run=false,last=0,still=matchMedia('(prefers-reduced-motion:reduce)').matches;
 function r(){return ch.charAt(Math.random()*ch.length|0)}
 function size(){
   dpr=Math.min(devicePixelRatio||1,2);
@@ -437,7 +506,7 @@ if(!still&&'IntersectionObserver' in window){
     if(on&&!run){run=true;requestAnimationFrame(loop)}else if(!on)run=false;
   }).observe(hero);
 }
-var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(size,150)});
+var rt,lw=innerWidth;addEventListener('resize',function(){if(innerWidth===lw)return;lw=innerWidth;clearTimeout(rt);rt=setTimeout(size,150)});
 })();
 </script>
 </body>
