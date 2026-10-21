@@ -6,9 +6,6 @@
   --wa1:#0F8040;--wa2:#0A6232;--ease:cubic-bezier(.22,1,.36,1);
   --head:"Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;--body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){--bg:#111923;--surface:#1A2330;--ink:#EEF2F7;--muted:#A5B2C3;--brand:#74ABDD;--on-brand:#0E1722;--deep:#0B1219;--on-deep:#EEF2F7;--line:#2A3646;--soft:#202B3A;--accent:#9CCBF5;--ok:#34D399;--hero:linear-gradient(165deg,#1B2735 0%,#111923 100%);--shadow:0 10px 30px rgba(0,0,0,.35);color-scheme:dark}
-}
 :root[data-theme="dark"]{--bg:#111923;--surface:#1A2330;--ink:#EEF2F7;--muted:#A5B2C3;--brand:#74ABDD;--on-brand:#0E1722;--deep:#0B1219;--on-deep:#EEF2F7;--line:#2A3646;--soft:#202B3A;--accent:#9CCBF5;--ok:#34D399;--hero:linear-gradient(165deg,#1B2735 0%,#111923 100%);--shadow:0 10px 30px rgba(0,0,0,.35);color-scheme:dark}
 
 *,*::before,*::after{box-sizing:border-box}

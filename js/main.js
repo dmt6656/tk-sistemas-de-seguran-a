@@ -29,7 +29,7 @@ addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contai
 
 /* Tema */
 var root=document.documentElement;
-$('#theme').addEventListener('click',function(){var d=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;root.dataset.theme=d?'light':'dark'});
+$('#theme').addEventListener('click',function(){root.dataset.theme=root.dataset.theme==='dark'?'light':'dark'});
 
 /* Animação de entrada: escalonada por lote (quem entra junto aparece em sequência) */
 if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion:reduce)').matches){
