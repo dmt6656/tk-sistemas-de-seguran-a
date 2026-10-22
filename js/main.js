@@ -29,7 +29,22 @@ addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contai
 
 /* Tema */
 var root=document.documentElement;
-$('#theme').addEventListener('click',function(){root.dataset.theme=root.dataset.theme==='dark'?'light':'dark'});
+$('#theme').addEventListener('click',function(e){
+  var b=e.currentTarget;
+  function flip(){root.dataset.theme=root.dataset.theme==='dark'?'light':'dark'}
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){flip();return}
+  if(document.startViewTransition){
+    var r=b.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2,
+        R=Math.hypot(Math.max(x,innerWidth-x),Math.max(y,innerHeight-y));
+    document.startViewTransition(flip).ready.then(function(){
+      document.documentElement.animate(
+        {clipPath:['circle(0px at '+x+'px '+y+'px)','circle('+R+'px at '+x+'px '+y+'px)']},
+        {duration:650,easing:'cubic-bezier(.22,1,.36,1)',pseudoElement:'::view-transition-new(root)'});
+    });
+  }else{
+    root.classList.add('tt');flip();setTimeout(function(){root.classList.remove('tt')},600);
+  }
+});
 
 /* Animação de entrada: escalonada por lote (quem entra junto aparece em sequência) */
 if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion:reduce)').matches){
