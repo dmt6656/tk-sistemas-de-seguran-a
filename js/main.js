@@ -81,4 +81,26 @@ function anim(d,f,t,done){d.style.overflow='hidden';var a=d.animate([{height:f+'
 function openD(d){var f=d.offsetHeight;d.open=true;if(!rm)anim(d,f,d.offsetHeight)}
 function closeD(d){var f=d.offsetHeight,t=d.querySelector('summary').offsetHeight+2;if(rm){d.open=false;return}anim(d,f,t,function(){d.open=false})}
 fs.forEach(function(d){d.querySelector('summary').addEventListener('click',function(e){e.preventDefault();if(d.open){closeD(d)}else{fs.forEach(function(o){if(o!==d&&o.open)closeD(o)});openD(d)}})});
+/* Rolagem suave: roda do mouse com inércia + links âncora (desktop; no toque e com "reduzir movimento" fica o nativo) */
+if(matchMedia('(pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion:reduce)').matches){
+ var de=document.documentElement,cur=scrollY,tgt=scrollY,on=false;
+ de.classList.add('sm');
+ function lim(v){return Math.max(0,Math.min(v,de.scrollHeight-innerHeight))}
+ function loop(){cur+=(tgt-cur)*.1;if(Math.abs(tgt-cur)<.5){cur=tgt;on=false}scrollTo(0,cur);if(on)requestAnimationFrame(loop)}
+ function go(v){if(!on){cur=scrollY;on=true;requestAnimationFrame(loop)}tgt=lim(v)}
+ function stop(){on=false;cur=tgt=scrollY}
+ addEventListener('wheel',function(e){
+  if(e.ctrlKey||e.defaultPrevented||Math.abs(e.deltaX)>Math.abs(e.deltaY)||e.target.closest('textarea,select'))return;
+  var dy=e.deltaMode===1?e.deltaY*32:e.deltaMode===2?e.deltaY*innerHeight:e.deltaY;
+  e.preventDefault();go((on?tgt:scrollY)+dy);
+ },{passive:false});
+ addEventListener('scroll',function(){if(!on){cur=tgt=scrollY}},{passive:true});
+ addEventListener('pointerdown',stop);addEventListener('keydown',stop);
+ $$('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){
+  var el=document.querySelector(a.getAttribute('href'));if(!el)return;
+  e.preventDefault();
+  go(el.getBoundingClientRect().top+scrollY-parseFloat(getComputedStyle(de).scrollPaddingTop));
+  history.pushState(null,'',a.getAttribute('href'));
+ })});
+}
 })();
